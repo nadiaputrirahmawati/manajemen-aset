@@ -1,0 +1,113 @@
+// ==========================================
+// SISTEM MANAJEMEN ASET RUMAH SAKIT (PRO)
+// ==========================================
+
+Table categories {
+  id bigint [pk, increment]
+  name varchar(100) [not null, note: 'Alat Medis Kritis, Bed Pasien, Elektronik, Lab']
+  code varchar(20) [unique, not null, note: 'Prefiks: MED, FUR, ELE']
+  description text [null]
+  created_at timestamp [null]
+  updated_at timestamp [null]
+}
+
+Table rooms {
+  id bigint [pk, increment]
+  name varchar(100) [not null, note: 'IGD, ICU, Poli Bedah, Kamar Operasi']
+  code varchar(20) [unique, not null, note: 'R-IGD-01']
+  floor int [not null, default: 1]
+  pic_name varchar(100) [null, note: 'Penanggung jawab ruangan']
+  created_at timestamp [null]
+  updated_at timestamp [null]
+}
+
+Table vendors {
+  id bigint [pk, increment]
+  name varchar(150) [not null]
+  contact_person varchar(100) [null]
+  phone varchar(30) [null]
+  email varchar(100) [null]
+  address text [null]
+  created_at timestamp [null]
+  updated_at timestamp [null]
+}
+
+Enum asset_condition {
+  baik
+  rusak_ringan
+  rusak_berat
+}
+
+Enum asset_status {
+  tersedia
+  sedang_digunakan
+  dalam_perbaikan
+  afkir
+}
+
+Table assets {
+  id bigint [pk, increment]
+  asset_code varchar(50) [unique, not null, note: 'Barcode / QR Identifier']
+  name varchar(255) [not null]
+  category_id bigint [not null, ref: > categories.id]
+  current_room_id bigint [not null, ref: > rooms.id, note: 'Lokasi terkini']
+  vendor_id bigint [null, ref: > vendors.id]
+  serial_number varchar(100) [null]
+  brand varchar(100) [null]
+  purchase_date date [not null]
+  purchase_price decimal(15,2) [not null, default: 0]
+  warranty_expiry date [null]
+  condition asset_condition [not null, default: 'baik']
+  status asset_status [not null, default: 'tersedia']
+  image_path varchar(255) [null]
+  notes text [null]
+  created_at timestamp [null]
+  updated_at timestamp [null]
+
+  indexes {
+    name
+    status
+    condition
+    (category_id, current_room_id)
+  }
+}
+
+// Inovasi 1: Riwayat Pemindahan / Mutasi Ruangan Alat Medis
+Table asset_transfers {
+  id bigint [pk, increment]
+  asset_id bigint [not null, ref: > assets.id]
+  from_room_id bigint [not null, ref: > rooms.id]
+  to_room_id bigint [not null, ref: > rooms.id]
+  transfer_date timestamp [not null]
+  transferred_by varchar(100) [not null, note: 'Nama staf / perawat yang memindahkan']
+  notes text [null]
+  created_at timestamp [null]
+  updated_at timestamp [null]
+}
+
+// Inovasi 2: Kalibrasi & Servis Berkala (Standar Akreditasi RS)
+Enum maintenance_status {
+  dijadwalkan
+  proses
+  selesai
+  dibatalkan
+}
+
+Table maintenance_logs {
+  id bigint [pk, increment]
+  asset_id bigint [not null, ref: > assets.id]
+  maintenance_type varchar(50) [not null, note: 'Kalibrasi Berkala, Servis Rusak, Uji Fungsi']
+  action_date date [not null]
+  next_maintenance_date date [null, note: 'Alarm kalibrasi berikutnya']
+  cost decimal(15,2) [default: 0]
+  technician_name varchar(100) [not null]
+  status maintenance_status [not null, default: 'selesai']
+  description text [null]
+  created_at timestamp [null]
+  updated_at timestamp [null]
+
+  indexes {
+    next_maintenance_date
+    status
+  }
+}
