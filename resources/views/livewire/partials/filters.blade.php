@@ -68,15 +68,6 @@
                 <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
                 <span>Reset</span>
             </button>
-
-            <button
-                wire:click="openCreateModal"
-                type="button"
-                class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-5 py-2.5 rounded-2xl shadow-sm shadow-emerald-600/20 transition-all cursor-pointer"
-            >
-                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
-                <span>Tambah Aset</span>
-            </button>
         </div>
     </div>
 </div>

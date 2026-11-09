@@ -29,7 +29,7 @@
                     <!-- Brand & Primary Nav -->
                     <div class="flex items-center gap-10">
                         <a href="{{ route('dashboard') }}" class="flex items-center gap-3 group">
-                            <div class="w-11 h-11 rounded-2xl bg-white p-1.5 border border-slate-100 shadow-sm flex items-center justify-center transition-transform group-hover:scale-105">
+                            <div class="w-11 h-11 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-105">
                                 <img src="{{ asset('images/logo-rs-ummi.svg') }}" alt="Logo RS UMMI" class="w-full h-full object-contain">
                             </div>
                             <div class="flex flex-col">
@@ -62,18 +62,6 @@
 
                     <!-- Right Controls / User from Database -->
                     <div class="flex items-center gap-5">
-                        <div class="flex items-center gap-2">
-                            <button type="button" title="Pengaturan" class="w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors">
-                                <i data-lucide="settings" class="w-4 h-4"></i>
-                            </button>
-                            <button type="button" title="Pesan" class="w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors">
-                                <i data-lucide="mail" class="w-4 h-4"></i>
-                            </button>
-                            <button type="button" title="Notifikasi" class="relative w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors">
-                                <i data-lucide="bell" class="w-4 h-4"></i>
-                                <span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-rose-500 ring-2 ring-white"></span>
-                            </button>
-                        </div>
 
                         <div class="h-6 w-[1px] bg-slate-200"></div>
 
@@ -114,12 +102,7 @@
                 <div class="flex items-center gap-2">
                     <span class="font-bold text-slate-800">RS UMMI</span>
                     <span>&bull;</span>
-                    <span>Sistem Manajemen Aset Rumah Sakit Terpadu</span>
-                </div>
-                <div class="flex items-center gap-2 text-slate-400">
-                    <span>Modern Clean UI</span>
-                    <span>&bull;</span>
-                    <span>&copy; {{ date('Y') }}</span>
+                    <span>Sistem Manajemen Aset Rumah Sakit </span>
                 </div>
             </div>
         </footer>

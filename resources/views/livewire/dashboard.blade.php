@@ -6,13 +6,8 @@
             <div class="flex items-start justify-between gap-4">
                 <div>
                     <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-1">Portofolio Aset Utama</span>
-                    <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">RS Asset Capital Reserve</h2>
-                    <div class="flex items-center gap-2 mt-1.5 text-xs font-medium text-slate-500">
-                        <span class="font-mono tracking-wider">ID: 88 1240 7793 3667</span>
-                        <a href="{{ route('assets.index') }}" class="text-emerald-600 hover:text-emerald-700 font-semibold inline-flex items-center ml-1">
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </a>
-                    </div>
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Manajemen Aset</h2>
+                
                 </div>
 
                 <div class="text-right">
