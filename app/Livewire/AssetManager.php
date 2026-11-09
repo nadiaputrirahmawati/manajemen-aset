@@ -315,15 +315,41 @@ class AssetManager extends Component
 
         $assets = $query->latest('id')->paginate($this->perPage);
 
+        $totalAssetsCount = Asset::query()->count();
+        $totalVal = (float) Asset::query()->sum('purchase_price');
+        $repairCount = Asset::query()->where('status', 'dalam_perbaikan')->count();
+        $inUseCount = Asset::query()->where('status', 'sedang_digunakan')->count();
+        $readyCount = Asset::query()->where('status', 'tersedia')->count();
+        $afkirCount = Asset::query()->where('status', 'afkir')->count();
+
+        // Category breakdown with asset count and total value
+        $categoryBreakdown = Category::query()
+            ->withCount('assets')
+            ->withSum('assets', 'purchase_price')
+            ->orderByDesc('assets_count')
+            ->take(5)
+            ->get();
+
+        // Recent activity or latest assets
+        $recentAssets = Asset::query()
+            ->with(['category', 'room'])
+            ->latest('id')
+            ->take(5)
+            ->get();
+
         return view('livewire.asset-manager', [
             'assets' => $assets,
             'categories' => Category::query()->orderBy('name')->get(),
             'rooms' => Room::query()->orderBy('name')->get(),
             'vendors' => Vendor::query()->orderBy('name')->get(),
-            'totalAssets' => Asset::query()->count(),
-            'totalValue' => (float) Asset::query()->sum('purchase_price'),
-            'repairAssets' => Asset::query()->where('status', 'dalam_perbaikan')->count(),
-            'readyAssets' => Asset::query()->where('status', 'tersedia')->count(),
+            'totalAssets' => $totalAssetsCount,
+            'totalValue' => $totalVal,
+            'repairAssets' => $repairCount,
+            'inUseAssets' => $inUseCount,
+            'readyAssets' => $readyCount,
+            'afkirAssets' => $afkirCount,
+            'categoryBreakdown' => $categoryBreakdown,
+            'recentAssets' => $recentAssets,
         ])->layout('layouts.app');
     }
 }

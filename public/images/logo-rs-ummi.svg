@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full" fill="none">
+    <!-- Crescent Moon in Deep Blue -->
+    <path d="M 330 60 C 200 60 100 155 100 280 C 100 395 185 475 295 475 C 330 475 365 465 395 448 C 240 450 160 340 160 260 C 160 170 230 85 330 60 Z" fill="#0e2a6b" />
+    <!-- Stars -->
+    <path d="M 360 85 L 362 90 L 367 90 L 363 93 L 365 98 L 360 95 L 355 98 L 357 93 L 353 90 L 358 90 Z" fill="#0e2a6b" />
+    <path d="M 380 115 L 382 121 L 388 121 L 383 125 L 385 131 L 380 127 L 375 131 L 377 125 L 372 121 L 378 121 Z" fill="#0e2a6b" />
+    <path d="M 395 155 L 398 162 L 405 162 L 399 167 L 401 174 L 395 169 L 389 174 L 391 167 L 385 162 L 392 162 Z" fill="#0e2a6b" />
+    <path d="M 405 205 L 407 210 L 412 210 L 408 213 L 410 218 L 405 215 L 400 218 L 402 213 L 398 210 L 403 210 Z" fill="#0e2a6b" />
+    <path d="M 408 260 L 410 265 L 415 265 L 411 268 L 413 273 L 408 270 L 403 273 L 405 268 L 401 265 L 406 265 Z" fill="#0e2a6b" />
+
+    <!-- Mother with Hijab & Baby in Sky Blue -->
+    <g fill="#4cb8f5" stroke="#0e2a6b" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+        <!-- Mother Hijab & Body Silhouette -->
+        <path d="M 235 155 C 240 100 270 85 305 85 C 345 85 365 110 360 170 C 375 220 405 310 355 420 C 320 435 270 435 240 430 C 230 420 220 370 220 340 C 190 340 170 380 160 410 C 150 395 150 320 170 270 C 170 230 205 180 235 155 Z" />
+        <!-- Baby Silhouette -->
+        <path d="M 235 230 C 240 190 205 170 185 180 C 165 190 165 225 175 250 C 160 270 155 310 170 345 C 185 345 210 340 225 310 C 235 285 240 255 235 230 Z" />
+    </g>
+
+    <!-- Outlines & Folds for Detail -->
+    <path d="M 270 180 C 295 190 305 220 310 260" stroke="#0e2a6b" stroke-width="4" stroke-linecap="round" fill="none" />
+    <path d="M 235 265 C 265 295 285 340 295 380" stroke="#0e2a6b" stroke-width="4" stroke-linecap="round" fill="none" />
+    <path d="M 205 240 C 215 255 225 280 225 300" stroke="#0e2a6b" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M 290 120 C 310 125 320 145 325 175" stroke="#0e2a6b" stroke-width="3" stroke-linecap="round" fill="none" />
+</svg>
